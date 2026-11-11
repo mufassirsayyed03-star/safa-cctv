@@ -44,7 +44,7 @@ export default function Home() {
     <main>
       <section className="hero"><div className="wrap hero-in">
         <div>
-          <span className="pill">CCTV · Electrical · Lighting — Nashik</span>
+         
           <h1>Safe homes. Bright spaces. <em>Wired right.</em></h1>
           <p className="lead">Safa Enterprises installs CCTV security systems, completes electrical wiring and fits lighting for homes, shops, offices and factories — and sells every product you need from one counter.</p>
           <div className="cta-row">
