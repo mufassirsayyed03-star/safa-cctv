@@ -1,0 +1,50 @@
+export const CATEGORIES = [
+  { id: "all", label: "All" },
+  { id: "cctv", label: "CCTV & Security" },
+  { id: "electrical", label: "Electrical" },
+  { id: "lighting", label: "Lighting" },
+];
+/* Real photo: public/images/products/photos/<slug>.jpg me rakhein (slug = img ka naam, jaise dome-camera.jpg). Photo na ho to illustration dikhega. */
+const FEATURES = {
+  "dome-camera": ["2MP / 5MP Full HD clarity", "Night vision up to 20m", "Vandal-resistant dome body", "Works with DVR / NVR"],
+  "bullet-camera": ["Weatherproof IP66 body", "Long-range IR night vision", "Wide-angle lens", "Easy wall / ceiling mount"],
+  "wifi-camera": ["Live view on mobile app", "Two-way audio", "Motion alerts", "Memory card & cloud recording"],
+  "ptz-camera": ["360° pan, tilt & zoom", "Auto tracking options", "Ideal for parking & large areas", "Night vision"],
+  "dvr-nvr": ["4 / 8 / 16 channel options", "Remote viewing on phone & PC", "H.265 compression", "Easy playback & backup"],
+  "hard-disk": ["Built for 24x7 recording", "1TB to 4TB capacity", "Low vibration & heat", "Manufacturer warranty"],
+  "cable-smps": ["Pure copper core cable", "12V DC power supplies", "BNC / DC connectors", "Neat & safe cabling"],
+  "door-phone": ["Video & audio calling", "Door unlock control", "Night vision camera", "Home, office & society use"],
+  "modular-switch": ["Premium modular plates", "Fire-retardant material", "Smooth, durable switching", "Wide range of colours"],
+  "mcb": ["Overload & short-circuit protection", "Single & double pole", "Multiple amp ratings", "Easy DIN-rail fitting"],
+  "copper-wire": ["99.9% pure copper", "FR / FRLS insulation", "1 to 4 sq.mm sizes", "90m coil packing"],
+  "ceiling-fan": ["Energy saving motor", "Silent, high air delivery", "Ceiling, wall & exhaust types", "Multiple colours"],
+  "inverter-battery": ["Pure sine wave output", "Tall tubular batteries", "Fast charging", "Installation support"],
+  "conduit-box": ["ISI-grade PVC pipes", "Junction boxes & bends", "Clips, tapes & fittings", "Concealed & surface wiring"],
+  "stabilizer": ["Wide input voltage range", "Digital voltage display", "Overload protection", "AC, TV & home use"],
+  "led-bulb": ["9W / 12W / 15W options", "Saves up to 80% power", "Long life 25,000 hrs", "Warm & cool white"],
+  "panel-light": ["Slim round / square design", "Even, glare-free light", "Recessed & surface mount", "Warm, neutral & cool white"],
+  "chandelier": ["Crystal & modern designs", "Custom sizes available", "Suitable for halls & hotels", "Professional installation"],
+  "wall-light": ["Up-down & indoor designs", "Aluminium body", "Cove & accent lighting", "Warm light effect"],
+  "flood-light": ["IP65 waterproof", "10W to 200W options", "High lumen output", "Gates, gardens & factories"],
+  "solar-light": ["No electricity bill", "Auto ON at dusk", "Weatherproof body", "Easy pole / wall mount"],
+  "led-strip": ["Warm, cool & RGB colours", "Remote / app control", "Driver included", "Cove & decor lighting"],
+};
+const BADGES = { "dome-camera": "Popular", "modular-switch": "Popular", "led-bulb": "Popular", "dvr-nvr": "Popular", "wifi-camera": "New", "solar-light": "New" };
+const I = (n) => (n.includes(".") ? n : `/images/products/${n}.jpg`);
+export const PRODUCTS = [
+  { cat: "cctv", img: "dome-camera", name: "HD Dome CCTV Camera (2MP / 5MP)", desc: "Indoor dome camera, night vision, sharp day & night recording." },
+  { cat: "cctv", img: "bullet-camera", name: "Bullet CCTV Camera (Outdoor)", desc: "Weatherproof metal body, long range IR, ideal for gates & shops." },
+  { cat: "cctv", img: "wifi-camera", name: "IP / Wi-Fi Smart Camera", desc: "Mobile app live view, two-way audio, motion alerts." },
+  { cat: "cctv", img: "ptz-camera", name: "PTZ Rotating Camera", desc: "360° pan-tilt-zoom camera for large premises and parking." },
+  { cat: "cctv", img: "dvr-nvr", name: "DVR / NVR Recorder (4 / 8 / 16 CH)", desc: "Reliable recording with remote viewing on phone & PC." },
+  { cat: "cctv", img: "hard-disk", name: "Surveillance Hard Disk (1TB – 4TB)", desc: "Purpose-built HDD for 24x7 CCTV recording." },
+  { cat: "cctv", img: "cable-smps", name: "CCTV Cable, SMPS & Connectors", desc: "Copper-core cable, power supplies, BNC/DC connectors." },
+  { cat: "cctv", img: "door-phone", name: "Video Door Phone & Biometric Lock", desc: "Smart entry for homes, offices and societies." },
+  { cat: "electrical", img: "modular-switch", name: "Modular Switches & Sockets", desc: "Premium modular range with elegant plates, safe and durable." },
+  { cat: "electrical", img: "mcb", name: "MCB, RCCB & Distribution Boards", desc: "Complete protection for homes, shops and factories." },
+  { cat: "electrical", img: "copper-wire", name: "Copper Wires & Cables (FR / FRLS)", desc: "ISI-grade house wiring, flexible and industrial cables." },
+  { cat: "lighting", img: "led-bulb", name: "LED Bulbs & Tube Lights", desc: "Bright, long-life lighting that cuts your electricity bill." },
+  { cat: "lighting", img: "panel-light", name: "LED Panel & COB Downlights", desc: "Clean ceiling light for homes, offices and showrooms." },
+  { cat: "lighting", img: "chandelier", name: "Decorative Chandeliers & Hanging Lights", desc: "Statement pieces for living rooms and hotels." },
+  { cat: "lighting", img: "wall-light", name: "Wall Lights & Profile Lights", desc: "Accent and cove lighting for modern interiors." },
+].map((p) => ({ ...p, slug: p.img, img: I(p.img), photo: p.photo || `/images/products/photos/${p.img}.jpg`, features: FEATURES[p.img] || [], badge: BADGES[p.img] }));
